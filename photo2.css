@@ -1,0 +1,108 @@
+body {
+    background: linear-gradient(to bottom, #f0afc9, #dec7ce);
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+    color: #d63384;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .video-box {
+    margin-bottom: 40px;
+  }
+  
+  .gallery img {
+    width: 300px;
+    margin: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+  }
+  
+  .gallery img:hover {
+    transform: scale(1.05);
+  }
+  
+  .video-gallery video {
+    width: 300px;
+    margin: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .gallery.column-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .video-gallery.column-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  video-gallery.column-layout video {
+    width: 500px;  /* ปรับความกว้างตามต้องการ */
+    height: auto;  /* หรือใส่ค่าที่แน่นอนได้ เช่น 300px */
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+  
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .floating-heart {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: pink;
+  border-radius: 50%;
+  animation: floatUp 4s linear forwards;
+  opacity: 0.8;
+  top: 100%;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+

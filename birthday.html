@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>จดหมาย</title>
+    <link rel="stylesheet" href="birthday.css">
+</head>
+<body>
+    <div class="container">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <strong>Happy Birthday ไอ้อ้วง</strong>
+                        <p>
+                            เค้าขอให้อ้วงมีความสุขมากๆ ขออะไรก็ให้สมหวัง เค้าเป็นกำลังใจให้อ้วงเสมอ
+                            เค้าจะค่อยดูเธอเติบโตไปเป็นครูที่ดีนะ อะไรที่แย่ก็อย่าไปคิดมากนะคนเก่ง
+                            ระบายมันออกมา เค้าพร้อมรับฟังอ้วงเสมอ เค้ายินดีกับเส้นทางที่เธอเลือกนะอ้วง❤️❤️💕
+                        </p>
+                        <p>คิดถึงอ้วงมากๆนะ😘😘</p>
+                    </div>
+                </div>
+            </div>
+        <div class="heart"></div>
+        </div>
+        <button id="next-page-btn">ต่อไป</button>
+    </div>
+    
+    <script>
+        const envelope = document.querySelector('.envelope-wrapper');
+        envelope.addEventListener('click', () => {
+            envelope.classList.toggle('flap');
+        });
+        document.getElementById('next-page-btn').addEventListener('click', function(event) {
+        event.stopPropagation(); // ป้องกันการเปิดจดหมายเมื่อกดปุ่ม
+        window.location.href = 'photo.html'; // เปลี่ยนลิ้งค์ตามที่ต้องการ
+    });
+     
+    </script>
+    
+</body>
+</html>

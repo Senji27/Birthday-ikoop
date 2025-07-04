@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>รหัส</title>
+  <link rel="stylesheet" href="pink_pin.css">
+</head>
+<body>
+  <h1>The password is your date of birth.</h1>
+  <div class="pin-container">
+    <input class="pin-input" maxlength="1" type="password" inputmode="numeric" pattern="[0-9]*" readonly />
+    <input class="pin-input" maxlength="1" type="password" inputmode="numeric" pattern="[0-9]*" readonly />
+    <input class="pin-input" maxlength="1" type="password" inputmode="numeric" pattern="[0-9]*" readonly />
+    <input class="pin-input" maxlength="1" type="password" inputmode="numeric" pattern="[0-9]*" readonly />
+    <input class="pin-input" maxlength="1" type="password" inputmode="numeric" pattern="[0-9]*" readonly />
+    <input class="pin-input" maxlength="1" type="password" inputmode="numeric" pattern="[0-9]*" readonly />
+  </div>
+  <div class="keypad">
+    <button class="key-btn" onclick="pressKey('1')">1</button>
+    <button class="key-btn" onclick="pressKey('2')">2</button>
+    <button class="key-btn" onclick="pressKey('3')">3</button>
+    <button class="key-btn" onclick="pressKey('4')">4</button>
+    <button class="key-btn" onclick="pressKey('5')">5</button>
+    <button class="key-btn" onclick="pressKey('6')">6</button>
+    <button class="key-btn" onclick="pressKey('7')">7</button>
+    <button class="key-btn" onclick="pressKey('8')">8</button>
+    <button class="key-btn" onclick="pressKey('9')">9</button>
+    <button class="key-btn blank" disabled></button>
+    <button class="key-btn" onclick="pressKey('0')">0</button>
+    <button class="key-btn blank" disabled></button>
+  </div>
+  <div>
+    <button class="submit" onclick="submitPin()">แน่ใจแล้วกดเลยยย</button>
+    <button class="clear" onclick="clearPin()">ล้าง</button>
+  </div>
+  <div id="result"></div>
+  <script>
+    const inputs = document.querySelectorAll('.pin-input');
+    let currentIdx = 0;
+
+    function pressKey(num) {
+      if (currentIdx < inputs.length) {
+        inputs[currentIdx].value = num;
+        currentIdx++;
+      }
+    }
+
+    function submitPin() {
+      const pin = Array.from(inputs).map(x => x.value).join('');
+      if (pin.length !== 6) {
+        document.getElementById('result').innerText = 'กรอกให้ครบก่อนน';
+      } else if (pin === '010745') {
+        document.getElementById('result').innerText = 'เก่งมากอ้วง อิอิ';
+        // รหัสถูก เปลี่ยนไปหน้า birthday
+        window.location.href = "birthday.html";
+      } else {
+        document.getElementById('result').innerText = 'คิดอีกรอบบบ';
+      }
+    }
+
+    function clearPin() {
+      inputs.forEach(input => input.value = '');
+      currentIdx = 0;
+      document.getElementById('result').innerText = '';
+    }
+  </script>
+</body>
+</html>
